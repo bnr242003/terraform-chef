@@ -1,7 +1,7 @@
 provider "aws" {
   region = "us-east-1"
-  access_key = "AKIAIOTUMBXKZITOP5HA"
-  secret_key = "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"
+  access_key = ""
+  secret_key = ""
 }
 
 resource "aws_instance" "test_jenkins_instance"{
