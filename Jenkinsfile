@@ -1,7 +1,8 @@
 node {
 stage ('create new EC2 instances using Terraform')
   {
-sh 'terraform apply -auto-approve'
+def trhome = tool name: 'terraform13', type: 'org.jenkinsci.plugins.terraform.TerraformInstallation'   
+    sh "${trhome}/terraform apply -auto-approve"
   }
   
 }
