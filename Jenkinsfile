@@ -11,7 +11,9 @@ sh "${mvnHome}/bin/mvn package"
       Thanks
       Biswa''', cc: '', from: '', replyTo: '', subject: 'Jenkins Job', to: 'bnr242003@gmail.com'
    }
+  stage('Deploy to Tomcat'){
   sshagent(['ec2-user-sshagent']) {
     sh 'scp -o StrictHostKeyChecking=no target/*.war ec2-user@10.0.2.180:/tmp/test'
 }
+  }
     }
