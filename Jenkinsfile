@@ -1,15 +1,14 @@
 node {
-stage('SCM Checkout'){
-     git 'https://github.com/bnr242003/terraform-chef'
-   }
-stage ('create new EC2 instances using Terraform')
-  {
-def trhome = tool name: 'terraform13', type: 'org.jenkinsci.plugins.terraform.TerraformInstallation' 
-    sh "${trhome}/terraform init -input=false "
-    sh "${trhome}/terraform apply -input=false -auto-approve "
-  }
-stage ('publishing the public IP')
-  {
-sh "cat /tmp/public_ip.txt"
- }
+stage ('SCM checkout'){
+git 'https://github.com/bnr242003/terraform-chef'
+                      }
+stage ('Compile-Package'){
+def mvnHome = tool name: 'maven-3', type: 'maven'
+sh "${mvnHome}/bin/mvn package"
+                       }
+stage('Deploy to Tomcat'){
+  sshagent(['ec2-user-sshagent']) {
+    sh 'scp -o StrictHostKeyChecking=no target/*.war ec2-user@10.0.2.180:/tmp/test'
 }
+  }
+    }
