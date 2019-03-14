@@ -11,7 +11,7 @@ def trhome = tool name: 'terraform13', type: 'org.jenkinsci.plugins.terraform.Te
 stage ('publishing the public IP')
   {
 def publicip = sh label: '', script: 'cat /tmp/public_ip.txt'
-def Value_publicip = "${publicip} 
+def Value_publicip = "${publicip}"
 assert Value_publicip.toString()
   }
 }
