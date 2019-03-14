@@ -1,8 +1,7 @@
 provider "aws" {
   region = "us-east-1"
   shared_credentials_file = "/home/ec2-user/.aws/credentials"
-  profile                 = "terraformjenkins"
-}
+ }
 
 resource "aws_instance" "test_jenkins_instance"{
   ami = "ami-0080e4c5bc078760e"
