@@ -1,6 +1,7 @@
 provider "aws" {
   region = "us-east-1"
-  profile = "terraformjenkins"
+  shared_credentials_file = "/home/ec2-user/.aws/credentials"
+  profile                 = "terraformjenkins"
 }
 
 resource "aws_instance" "test_jenkins_instance"{
@@ -13,6 +14,6 @@ resource "aws_instance" "test_jenkins_instance"{
     Name = "testjenkins"
     }
 provisioner "local-exec"{
-  command = "echo ${aws_instance.test_jenkins_instance.public_ip} >> /tmp/public_ip.txt"
+  command = "echo ${aws_instance.test_jenkins_instance.public_ip} >/tmp/public_ip.txt"
   }
 }
