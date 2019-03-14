@@ -9,6 +9,7 @@ def trhome = tool name: 'terraform13', type: 'org.jenkinsci.plugins.terraform.Te
   }
 stage ('publishing the public IP')
   {
-// publish the code
+def public_ip = sh "cat /tmp/public_ip.txt "
+       sh " echo ${public_ip}
   }
 }
