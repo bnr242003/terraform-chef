@@ -1,6 +1,6 @@
 provider "aws" {
   region = "us-east-1"
-  shared_credentials_file = "/home/ec2-user/\.aws/credentials"
+  shared_credentials_file = "/opt/Terraform/credentials"
  }
 
 resource "aws_instance" "test_jenkins_instance"{
