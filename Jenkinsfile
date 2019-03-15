@@ -1,11 +1,15 @@
 node {
-stage ('SCM checkout'){
-git 'https://github.com/bnr242003/terraform-chef'
-     }
-stage('Connect to Chef client and then run chef code'){
- sshagent(['ec2-user-Biswa-reantest']){
-  sh 'scp -r -v -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/chef-pipeline/testcookbook ec2-user@3.80.159.110:/home/ec2-user/cookbooks/.'
-  sh 'ssh -v -o StrictHostKeyChecking=no ec2-user@3.80.159.110 sudo /opt/chefdk/bin/chef-client --local-mode --override-runlist recipe[testcookbook]'
-}
+stage('SCM Checkout'){
+     git 'https://github.com/bnr242003/terraform-chef'
+   }
+stage ('create new EC2 instances using Terraform')
+  {
+def trhome = tool name: 'terraform-13', type: 'org.jenkinsci.plugins.terraform.TerraformInstallation' 
+    sh "${trhome}/terraform init -input=false "
+    sh "${trhome}/terraform apply -input=false -auto-approve "
   }
-    }
+stage ('publishing the public IP')
+  {
+sh "cat /tmp/public_ip.txt"
+ }
+}
