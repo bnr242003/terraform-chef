@@ -12,7 +12,11 @@ resource "aws_instance" "test_jenkins_instance"{
   tags {
     Name = "testjenkins"
     }
-provisioner "local-exec"{
+/* provisioner "local-exec"{
   command = "echo ${aws_instance.test_jenkins_instance.public_ip} >/tmp/public_ip.txt"
-  }
+  }  */
+}
+
+output "address" {
+value = "${aws_instance.test_jenkins_instance.public_ip}"
 }
