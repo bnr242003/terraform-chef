@@ -4,7 +4,7 @@
 #
 # Copyright:: 2019, The Authors, All Rights Reserved.
 
-directory 'C:/opscode/testarea1' do
+directory '/tmp/text' do
   action :create
 end
 
