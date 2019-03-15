@@ -4,7 +4,7 @@
 #
 # Copyright:: 2019, The Authors, All Rights Reserved.
 
-directory '/tmp/text' do
+directory '/tmp/text2' do
   action :create
 end
 
