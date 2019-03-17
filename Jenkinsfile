@@ -19,7 +19,7 @@ stage ('create new EC2 instances using Terraform')
   {
 def trhome = tool name: 'terraform-13', type: 'org.jenkinsci.plugins.terraform.TerraformInstallation' 
     sh "${trhome}/terraform init -input=false "
-    sh "${trhome}/terraform apply -input=false -auto-approve -var="region-aws=${AWS_REGION}" -var="subnet-id-aws=${SUBNET_ID}" -var="sg-id-aws=${SG_ID}"  -var="ami-aws=${AMI}""
+    sh "${trhome}/terraform apply -input=false -auto-approve -var="region-aws = ${AWS_REGION}" -var="subnet-id-aws = ${SUBNET_ID}" -var="sg-id-aws = ${SG_ID}"  -var="ami-aws = ${AMI}""
   }
 stage ('publishing the public IP')
   {
