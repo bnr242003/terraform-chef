@@ -3,11 +3,11 @@ variable "region-aws" {
 }
 
 variable "subnet-id-aws" {
-  default = "subnet-991258fc"
+  default = "subnet-0faca3ecb7f953440"
 }
 
 variable "sg-id-aws" {
-  default = "sg-0a236475"
+  default = "sg-0a1548c50229482ee"
 }
 
 variable "ami-aws" {
