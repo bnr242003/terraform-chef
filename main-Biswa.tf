@@ -1,12 +1,13 @@
 provider "aws" {
-  region = "us-east-1"
+  region     = "${var.region-aws}"
   shared_credentials_file = "/opt/Terraform-13/credentials"
  }
 
 resource "aws_instance" "test_jenkins_instance"{
-  ami = "ami-0080e4c5bc078760e"
-  instance_type = "t2.micro"
-  subnet_id = "subnet-0faca3ecb7f953440"
+  ami            = "${var.ami-aws}"
+  instance_type  = "t2.micro"
+  subnet_id      = "${var.subnet-id-aws}"
+  security_group = "${var.sg-id-aws}"
   instance_initiated_shutdown_behavior = "terminate"
   key_name = "Biswanew"
   tags {
