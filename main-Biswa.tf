@@ -7,7 +7,6 @@ resource "aws_instance" "test_jenkins_instance"{
   ami            = "${var.ami-aws}"
   instance_type  = "t2.micro"
   subnet_id      = "${var.subnet-id-aws}"
-  security_group = "${var.sg-id-aws}"
   instance_initiated_shutdown_behavior = "terminate"
   key_name = "Biswanew"
   tags {
