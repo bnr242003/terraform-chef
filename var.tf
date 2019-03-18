@@ -1,11 +1,11 @@
 variable "region_test" {
-  default = "us-east-1"
+  region_test = "${$BUILD_REGION}"
 }
 
 variable "subnet-id_test" {
-  default = "subnet-0faca3ecb7f953440"
+  subnet-id_test = "${$BUILD_SUBNET_ID}"
 }
 
 variable "ami_test" {
-  default = "ami-0080e4c5bc078760e"
+  ami_test = "${$BUILD_AMI}"
 }
