@@ -1,15 +1,11 @@
 node {
-parameters {
-  string(name: 'REGION', defaultValue: 'us-east-1', description: 'The AWS region to use')
-  string(name: 'SUBNET_ID', defaultValue: 'subnet-991258fc', description: 'The subnet id to use')
-  string(name: 'SECURITY_GROUP_ID', defaultValue: 'sg-0a236475', description: 'The security group to attach to the launched instance')
-  string(name: 'AMI', defaultValue: 'ami-0080e4c5bc078760e', description: 'The ami to be used for the instance')
-  
-}
+
+ properties([parameters([string(defaultValue: 'us-east-1', description: 'The AWS region to use', name: 'REGION', trim: true), 
+                        string(defaultValue: 'subnet-991258fc', description: 'The subnet id to use', name: 'SUBNET_ID', trim: false), 
+                        string(defaultValue: 'ami-0080e4c5bc078760e', description: 'The ami to be used', name: 'AMI', trim: false)])])  
 environment {
  AWS_REGION = "${params.REGION}"
  SUBNET_ID = "${params.SUBNET_ID}"
- SG_ID = "${params.SECURITY_GROUP_ID}"
  AMI = "${params.AMI}"
  }     
 stage('SCM Checkout'){
