@@ -7,8 +7,10 @@ environment {
  AWS_REGION = "${params.REGION}"
  SUBNET_ID = "${params.SUBNET_ID}"
  AMI = "${params.AMI}"
- sh "echo sh REGION is ${params.REGION}"
- }     
+  }
+ stage('Value of parameters'){
+     sh "echo sh REGION is ${params.REGION}"
+   }
 stage('SCM Checkout'){
      git 'https://github.com/bnr242003/terraform-chef'
    }
