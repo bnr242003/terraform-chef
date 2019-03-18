@@ -19,6 +19,7 @@ stage ('create new EC2 instances using Terraform')
      sh " echo ami_test = $AMI >> /var/lib/jenkins/workspace/Terraform-pipeline/terraform.tfvars"
      def trhome = tool name: 'terraform-13', type: 'org.jenkinsci.plugins.terraform.TerraformInstallation' 
      sh "${trhome}/terraform init -input=false "
+     sh " pwd"
      sh "${trhome}/terraform apply -input=false -auto-approve " 
   }
 }
