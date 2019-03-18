@@ -1,5 +1,5 @@
 variable "region_test" {
- default = "us-east-4"
+ default = ""
 }
 
 variable "subnet-id_test" {
