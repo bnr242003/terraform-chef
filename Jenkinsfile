@@ -1,12 +1,13 @@
 node {
 
- properties([parameters([string(defaultValue: 'us-east-1', description: 'The AWS region to use', name: 'REGION', trim: true), 
+ properties([parameters([string(defaultValue: 'us-east-2', description: 'The AWS region to use', name: 'REGION', trim: true), 
                         string(defaultValue: 'subnet-991258fc', description: 'The subnet id to use', name: 'SUBNET_ID', trim: false), 
                         string(defaultValue: 'ami-0080e4c5bc078760e', description: 'The ami to be used', name: 'AMI', trim: false)])])  
 environment {
  AWS_REGION = "${params.REGION}"
  SUBNET_ID = "${params.SUBNET_ID}"
  AMI = "${params.AMI}"
+ sh "echo sh REGION is ${params.REGION}"
  }     
 stage('SCM Checkout'){
      git 'https://github.com/bnr242003/terraform-chef'
