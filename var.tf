@@ -1,11 +1,11 @@
 variable "region_test" {
-  default = "us-east-04"
+  default = "${TF_VAR_region_test}"
 }
 
 variable "subnet-id_test" {
-  default = ""
+  default = "${TF_VAR_subnet-id_test}"
 }
 
 variable "ami_test" {
-  default = ""
+  default = "${TF_VAR_ami_test=ami}"
 }
