@@ -17,6 +17,8 @@ stage ('create new EC2 instances using Terraform')
 def trhome = tool name: 'terraform-13', type: 'org.jenkinsci.plugins.terraform.TerraformInstallation' 
     sh "${trhome}/terraform init -input=false "
    sh " set region_test = $REGION; set subnet-id_test = $SUBNET_ID; set ami_test=$AMI"
-   sh "${trhome}/terraform apply -input=false -auto-approve -var region_test="${REGION}" -var subnet-id_test="${SUBNET_ID}" -var ami_test="${AMI}""
+   sh "${trhome}/terraform apply -input=false -auto-approve -var region_test="region_test" \
+   -var subnet-id_test="subnet-id_test" \
+   -var ami_test="ami_test""
   }
 }
