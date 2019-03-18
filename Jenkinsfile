@@ -12,6 +12,9 @@ node {
      sh "echo sh REGION is ${REGION}"
      sh "echo sh  SUBNET_ID is ${SUBNET_ID}"
      sh "echo sh AMI is ${AMI}"
+     sh "export TF_VAR_region_test = ${REGION}"
+     sh "export TF_VAR_subnet-id_test = ${SUBNET_ID}"
+     sh "export TF_VAR_ami_test = ${AMI}"
    }
 stage('SCM Checkout'){
      git 'https://github.com/bnr242003/terraform-chef'
