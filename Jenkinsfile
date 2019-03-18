@@ -17,9 +17,9 @@ stage ('create new EC2 instances using Terraform')
     def trhome = tool name: 'terraform-13', type: 'org.jenkinsci.plugins.terraform.TerraformInstallation' 
     def region_test = "${REGION}"
      sh "${trhome}/terraform init -input=false "
-     sh " echo region_test = $REGION > /var/lib/jenkins/workspace/Terraform-pipeline/terraform.tfvars"
-     sh " echo subnet-id_test = $SUBNET_ID > /var/lib/jenkins/workspace/Terraform-pipeline/terraform.tfvars"
-     sh " echo ami_test = $AMI > /var/lib/jenkins/workspace/Terraform-pipeline/terraform.tfvars"
-     sh "${trhome}/terraform apply -input=false -auto-approve -var-file=terraform.tfvars" 
+     sh " echo region_test = $REGION >> /var/lib/jenkins/workspace/Terraform-pipeline/terraform.tfvars"
+     sh " echo subnet-id_test = $SUBNET_ID >> /var/lib/jenkins/workspace/Terraform-pipeline/terraform.tfvars"
+     sh " echo ami_test = $AMI >> /var/lib/jenkins/workspace/Terraform-pipeline/terraform.tfvars"
+     sh "${trhome}/terraform apply -input=false -auto-approve -var-file="terraform.tfvars" " 
   }
 }
