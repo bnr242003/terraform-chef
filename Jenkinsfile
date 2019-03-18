@@ -20,7 +20,7 @@ stage ('create new EC2 instances using Terraform')
   {
 def trhome = tool name: 'terraform-13', type: 'org.jenkinsci.plugins.terraform.TerraformInstallation' 
     sh "${trhome}/terraform init -input=false "
-    sh "${trhome}/terraform apply -input=false -auto-approve -var-file=terraform.tfvars"
+    sh "${trhome}/terraform apply -input=false -auto-approve"
   }
 stage ('publishing the public IP')
   {
