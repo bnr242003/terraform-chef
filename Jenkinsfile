@@ -4,7 +4,7 @@ node {
                         string(defaultValue: 'subnet-991258fc', description: 'The subnet id to use', name: 'SUBNET_ID', trim: false), 
                         string(defaultValue: 'ami-0080e4c5bc078760e', description: 'The ami to be used', name: 'AMI', trim: false)])])  
 withEnv(['myshell=/usr/bin']) {
- sh ' set TF_VAR_region_test = $REGION; set TF_VAR_region_subnet-id_test = $SUBNET_ID; set TF_VAR_ami_test=$AMI'
+ sh ' set TF_VAR_region_test = $REGION; set TF_VAR_subnet-id_test = $SUBNET_ID; set TF_VAR_ami_test=$AMI'
 }
  stage('Value of parameters'){
      sh "echo sh REGION is ${REGION}"
@@ -20,8 +20,4 @@ def trhome = tool name: 'terraform-13', type: 'org.jenkinsci.plugins.terraform.T
     sh "${trhome}/terraform init -input=false "
    sh "${trhome}/terraform apply -input=false -auto-approve"
   }
-stage ('publishing the public IP')
-  {
-sh "cat /tmp/public_ip.txt"
- }
 }
