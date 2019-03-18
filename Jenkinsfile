@@ -20,6 +20,6 @@ stage ('create new EC2 instances using Terraform')
      sh " echo region_test = $REGION >> /var/lib/jenkins/workspace/Terraform-pipeline/terraform.tfvars"
      sh " echo subnet-id_test = $SUBNET_ID >> /var/lib/jenkins/workspace/Terraform-pipeline/terraform.tfvars"
      sh " echo ami_test = $AMI >> /var/lib/jenkins/workspace/Terraform-pipeline/terraform.tfvars"
-     sh "${trhome}/terraform apply -input=false -auto-approve -var-file="terraform.tfvars" " 
+     sh "${trhome}/terraform apply -input=false -auto-approve " 
   }
 }
