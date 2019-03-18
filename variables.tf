@@ -3,9 +3,9 @@ variable "region_test" {
 }
 
 variable "subnet-id_test" {
-  
+  default = ""
 }
 
 variable "ami_test" {
-
+default = ""
 }
