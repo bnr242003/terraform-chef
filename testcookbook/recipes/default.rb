@@ -1,13 +1,24 @@
 #
-# Cookbook:: testcookbook
+# Cookbook:: application
 # Recipe:: default
 #
 # Copyright:: 2019, The Authors, All Rights Reserved.
 
-directory '/tmp/text2' do
+package 'nginx'
+
+service 'nginx' do
+  action [ :enable, :start ]
+end
+
+cookbook_file '/usr/share/nginx/html/index.html' do
+  source 'index.html'
+  owner 'root'
+  group 'root'
+  mode '0755'
   action :create
 end
 
-#file "C:/opscode/testarea/test.txt" do
- # content 'This file was created by Chef!'
-#end
+
+
+
+
